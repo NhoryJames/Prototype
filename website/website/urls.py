@@ -20,7 +20,8 @@ from django.urls import path, include
 from main.views import *
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', include('main.urls')),
+    path('pet/', include('pets.urls')),
     path('login/', login, name='login'),
     path('signup/', signup, name='signup'),
     path('admin/', admin.site.urls),
