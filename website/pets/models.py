@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -18,6 +20,7 @@ class Pet(models.Model):
     healthcondition = models.CharField(max_length=100, verbose_name="Health Condition")
     pet_description = models.TextField(verbose_name="Pet Description")
     is_adopted = models.BooleanField(default=False, verbose_name="Is Adopted?")
+    adopted_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     pet_img_url = models.CharField(max_length=255, null=True ,verbose_name="Pet Image URL")
 
     def __str__(self):
