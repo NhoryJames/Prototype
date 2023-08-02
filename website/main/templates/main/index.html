@@ -8,17 +8,30 @@
         <h2 class="mb-12 text-2xl text-center"> Adoptable Pets </h2>
         <!-- GRID -->
         <div class="grid grid-cols-3 gap-3">
-            {% for pets in pet %}
+            {% for pet in pets %}
             <div>
-                <a href="{% url 'pets:detail' pets.petID %}">
-                    <div>
-                        <img src="{{pets.pet_img_url}}" alt="{{ pets.pet_name }}" class="rounded-t-xl">
+                <a href="{% url 'pets:detail' pet.petID %}">
+                    <div class="p-6 bg-white rounded-b-xl rounded-t-xl">
+                        <h2 class="text-2xl">{{ pet.pet_name }}</h2>
+                        <p class="text-gray-500"> Breed: {{ pet.breed }} </p>
+                        <p class="text-gray-500"> Age: {{ pet.pet_age }} </p>
+                        <p class="text-gray-500"> Size: {{ pet.size }} </p>
                     </div>
-                    <div class="p-6 bg-white rounded-b-xl">
-                        <h2 class="text-2xl">{{pets.pet_name}}</h2>
-                        <p class="text-gray-500"> Breed: {{pets.breed}} </p>
-                        <p class="text-gray-500"> Age: {{pets.pet_age}} </p>
-                        <p class="text-gray-500"> Size: {{pets.size}} </p>
+                </a>
+            </div>
+            {% endfor %}
+
+            {% for recommended_pet in recommended_pets %}
+            <div>
+                <a href="{% url 'pets:detail' recommended_pet.petID %}">
+                    <div>
+                        
+                    </div>
+                    <div class="p-6 bg-white rounded-b-xl rounded-t-xl">
+                        <h2 class="text-2xl">{{ recommended_pet.pet_name }}</h2>
+                        <p class="text-gray-500"> Breed: {{ recommended_pet.breed }} </p>
+                        <p class="text-gray-500"> Age: {{ recommended_pet.pet_age }} </p>
+                        <p class="text-gray-500"> Size: {{ recommended_pet.size }} </p>
                     </div>
                 </a>
             </div>

@@ -21,9 +21,11 @@ from main.views import *
 
 urlpatterns = [
     path('', include('main.urls')),
+    path('logout_user', logout_user, name='logout'),
     path('pet/', include('pets.urls')),
     path('login/', login, name='login'),
     path('signup/', signup, name='signup'),
+    path('signup1/', signup1, name='signup1'),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Sign Up: Step 2 {% endblock %}
+
+{% block content %}
+
+<h1>Preference Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+{% endblock %}

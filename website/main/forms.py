@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from main.models import Preference
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
@@ -37,3 +38,19 @@ class RegistrationForm(UserCreationForm):
         'placeholder': 'Confirm password',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
+
+class PreferenceForm(forms.ModelForm):
+    class Meta:
+        model = Preference
+        fields = [
+            'pf_animal_type',
+            'pf_breed',
+            'pf_age',
+            'pf_size',
+            'pf_color',
+            'pf_gender',
+            'pf_personality',
+            'has_medicalcondition',
+            'is_spayed',
+            'is_neutered'
+        ]

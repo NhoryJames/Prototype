@@ -5,12 +5,25 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Pet(models.Model):
+
+    GENDER_CHOICES = [
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other'),
+    ]
+
+    ANIMAL_TYPE_CHOICES = [
+        ('dog', 'Dog'),
+        ('cat', 'Cat'),
+        ('both', 'Both'),
+    ]
+
     petID = models.AutoField(primary_key=True, verbose_name="Pet ID")
     pet_name = models.CharField(max_length=50, verbose_name="Pet Name")
-    animal_type = models.CharField(max_length=25, verbose_name="Animal Type")
+    animal_type = models.CharField(max_length=15, choices=ANIMAL_TYPE_CHOICES, verbose_name="Animal Type")
     breed = models.CharField(max_length=50, verbose_name="Breed")
     pet_age = models.PositiveSmallIntegerField(verbose_name="Age")
-    pet_gender = models.CharField(max_length=25, verbose_name="Gender")
+    pet_gender = models.CharField(max_length=15, choices=GENDER_CHOICES, verbose_name="Gender")
     size = models.CharField(max_length=25, verbose_name="Size")
     color = models.CharField(max_length=25, verbose_name="Color")
     personality = models.CharField(max_length=50, verbose_name="Personality")
